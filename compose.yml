@@ -1,0 +1,15 @@
+services:
+  claude:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /workspace
+    volumes:
+      - ${PWD}:/workspace
+      - claude-config:/root
+    stdin_open: true
+    tty: true
+
+volumes:
+  claude-config:
+    driver: local
