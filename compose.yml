@@ -7,6 +7,8 @@ services:
     volumes:
       - ${PWD}:/workspace
       - claude-config:/root
+    env_file:
+      - .env
     stdin_open: true
     tty: true
 
