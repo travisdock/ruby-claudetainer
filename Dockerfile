@@ -27,6 +27,7 @@ RUN (type -p wget >/dev/null || (apt update && apt install wget -y)) \
 RUN npm install -g @anthropic-ai/claude-code
 
 # Add bash alias for claude sandbox mode
-RUN echo 'alias cdev="IS_SANDBOX=1 claude --dangerously-skip-permissions"' >> /root/.bashrc
+RUN touch /root/.bashrc && \
+    echo 'alias cdev="IS_SANDBOX=1 claude --dangerously-skip-permissions"' >> /root/.bashrc
 
 CMD ["claude"]
